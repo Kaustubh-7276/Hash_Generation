@@ -1,0 +1,37 @@
+<Window x:Class="HashGenerator.PrintPreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HashGenerator"
+        mc:Ignorable="d"
+        Title="Print Report" Height="700" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <!-- Preview Side -->
+            <ColumnDefinition Width="300" />
+            <!-- Settings Side -->
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT: Live Preview -->
+        <DocumentViewer Name="docViewer" 
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch" />
+
+        <!-- RIGHT: Printer Settings -->
+        <StackPanel Grid.Column="1" Margin="20" Background="#F8F9FA">
+            <TextBlock Text="PRINTER SETTINGS" FontWeight="Bold" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Select Printer" Margin="0,10,0,5"/>
+            <!-- Bind this ComboBox to the list of installed printers -->
+            <ComboBox Name="printerList" DisplayMemberPath="FullName" Height="35" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Copies" Margin="0,10,0,5"/>
+            <TextBox Name="txtCopies" Text="1" Height="30" Width="50" HorizontalAlignment="Left" Margin="0,0,0,20"/>
+
+            <Button Content="PRINT NOW" Click="BtnPrint_Click" 
+                    Background="#2C2F83" Foreground="White" Height="45" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
