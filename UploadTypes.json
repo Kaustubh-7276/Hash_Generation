@@ -1,0 +1,852 @@
+[
+  {
+    "Code": "SAL",
+    "Description": "Salary",
+    "DisplayName": "SAL: Salary"
+  },
+  {
+    "Code": "ICL",
+    "Description": "Inward Clearing",
+    "DisplayName": "ICL: Inward Clearing"
+  },
+  {
+    "Code": "BUL",
+    "Description": "Bulk DD Payment / Cancellation",
+    "DisplayName": "BUL: Bulk DD Payment / Cancellation"
+  },
+  {
+    "Code": "CMP",
+    "Description": "Cash Management Product",
+    "DisplayName": "CMP: Cash Management Product"
+  },
+  {
+    "Code": "BLK",
+    "Description": "Bulk Account Creation",
+    "DisplayName": "BLK: Bulk Account Creation"
+  },
+  {
+    "Code": "DWM",
+    "Description": "Bulk Dividend Warrants",
+    "DisplayName": "DWM: Bulk Dividend Warrants"
+  },
+  {
+    "Code": "OCR",
+    "Description": "Outward Clearing High Value",
+    "DisplayName": "OCR: Outward Clearing High Value"
+  },
+  {
+    "Code": "OCM",
+    "Description": "Outward Clearing MICR",
+    "DisplayName": "OCM: Outward Clearing MICR"
+  },
+  {
+    "Code": "ICM",
+    "Description": "Inward Clearing MICR",
+    "DisplayName": "ICM: Inward Clearing MICR"
+  },
+  {
+    "Code": "FES",
+    "Description": "FES File Upload",
+    "DisplayName": "FES: FES File Upload"
+  },
+  {
+    "Code": "FEA",
+    "Description": "FEA File Upload",
+    "DisplayName": "FEA: FEA File Upload"
+  },
+  {
+    "Code": "EXR",
+    "Description": "Exchange Rates Upload",
+    "DisplayName": "EXR: Exchange Rates Upload"
+  },
+  {
+    "Code": "OCL",
+    "Description": "Outward Clearing",
+    "DisplayName": "OCL: Outward Clearing"
+  },
+  {
+    "Code": "IAN",
+    "Description": "Inward Clearing with Account No.",
+    "DisplayName": "IAN: Inward Clearing with Account No."
+  },
+  {
+    "Code": "ICO",
+    "Description": "Inward Collection",
+    "DisplayName": "ICO: Inward Collection"
+  },
+  {
+    "Code": "MOC",
+    "Description": "Marks Return for Outward Clearing",
+    "DisplayName": "MOC: Marks Return for Outward Clearing"
+  },
+  {
+    "Code": "COL",
+    "Description": "Collection cheque deposit",
+    "DisplayName": "COL: Collection cheque deposit"
+  },
+  {
+    "Code": "IOI",
+    "Description": "IOI-Bulk Payment",
+    "DisplayName": "IOI: IOI-Bulk Payment"
+  },
+  {
+    "Code": "BAC",
+    "Description": "Bulk Account Creation And Cleaning",
+    "DisplayName": "BAC: Bulk Account Creation And Cleaning"
+  },
+  {
+    "Code": "REM",
+    "Description": "Remittance Instrument",
+    "DisplayName": "REM: Remittance Instrument"
+  },
+  {
+    "Code": "CIL",
+    "Description": "CPC Inward Clearing",
+    "DisplayName": "CIL: CPC Inward Clearing"
+  },
+  {
+    "Code": "DEP",
+    "Description": "SAVING BANK Bulk Account Creation And Cleaning",
+    "DisplayName": "DEP: SAVING BANK Bulk Account Creation And Cleaning"
+  },
+  {
+    "Code": "CCO",
+    "Description": "CC/OD Bulk Account Creation And Cleaning",
+    "DisplayName": "CCO: CC/OD Bulk Account Creation And Cleaning"
+  },
+  {
+    "Code": "LIM",
+    "Description": "E-LOC UPLOAD",
+    "DisplayName": "LIM: E-LOC UPLOAD"
+  },
+  {
+    "Code": "VDA",
+    "Description": "Vostro Advise Upload",
+    "DisplayName": "VDA: Vostro Advise Upload"
+  },
+  {
+    "Code": "VDP",
+    "Description": "Vostro Transaction Posting",
+    "DisplayName": "VDP: Vostro Transaction Posting"
+  },
+  {
+    "Code": "TTP",
+    "Description": "Bulk TT Payment",
+    "DisplayName": "TTP: Bulk TT Payment"
+  },
+  {
+    "Code": "BER",
+    "Description": "Bulk Er Outgoing Messages",
+    "DisplayName": "BER: Bulk Er Outgoing Messages"
+  },
+  {
+    "Code": "WER",
+    "Description": "Dividend Warrant Bulk Er",
+    "DisplayName": "WER: Dividend Warrant Bulk Er"
+  },
+  {
+    "Code": "COC",
+    "Description": "CMP Outward Clearing",
+    "DisplayName": "COC: CMP Outward Clearing"
+  },
+  {
+    "Code": "RTG",
+    "Description": "RTGS Bulk File Upload",
+    "DisplayName": "RTG: RTGS Bulk File Upload"
+  },
+  {
+    "Code": "IWC",
+    "Description": "Inward Clearing Consolidated Upload",
+    "DisplayName": "IWC: Inward Clearing Consolidated Upload"
+  },
+  {
+    "Code": "IOP",
+    "Description": "IOI-Inward Clearing",
+    "DisplayName": "IOP: IOI-Inward Clearing"
+  },
+  {
+    "Code": "ITR",
+    "Description": "IT Refund Order",
+    "DisplayName": "ITR: IT Refund Order"
+  },
+  {
+    "Code": "ADV",
+    "Description": "Advice Details",
+    "DisplayName": "ADV: Advice Details"
+  },
+  {
+    "Code": "BGL",
+    "Description": "Branch General Ledger",
+    "DisplayName": "BGL: Branch General Ledger"
+  },
+  {
+    "Code": "FIC",
+    "Description": "Financial Inclusion",
+    "DisplayName": "FIC: Financial Inclusion"
+  },
+  {
+    "Code": "GPT",
+    "Description": "GRPT Bulk File Upload",
+    "DisplayName": "GPT: GRPT Bulk File Upload"
+  },
+  {
+    "Code": "RDD",
+    "Description": "Financial Inclusion - Recurring Deposits",
+    "DisplayName": "RDD: Financial Inclusion - Recurring Deposits"
+  },
+  {
+    "Code": "ECS",
+    "Description": "Electronic Clearing System",
+    "DisplayName": "ECS: Electronic Clearing System"
+  },
+  {
+    "Code": "CIF",
+    "Description": "BULK CIF File Upload",
+    "DisplayName": "CIF: BULK CIF File Upload"
+  },
+  {
+    "Code": "ACT",
+    "Description": "Bulk Account Type/Interest Category Change",
+    "DisplayName": "ACT: Bulk Account Type/Interest Category Change"
+  },
+  {
+    "Code": "CDD",
+    "Description": "DD Revalidation/Duplication/Lost Marking",
+    "DisplayName": "CDD: DD Revalidation/Duplication/Lost Marking"
+  },
+  {
+    "Code": "DWC",
+    "Description": "Dividend Warrant Cancellation",
+    "DisplayName": "DWC: Dividend Warrant Cancellation"
+  },
+  {
+    "Code": "DWR",
+    "Description": "Dividend Warrant Revalidation",
+    "DisplayName": "DWR: Dividend Warrant Revalidation"
+  },
+  {
+    "Code": "FCY",
+    "Description": "Foreign Currency",
+    "DisplayName": "FCY: Foreign Currency"
+  },
+  {
+    "Code": "BCA",
+    "Description": "Bulk Customer Account",
+    "DisplayName": "BCA: Bulk Customer Account"
+  },
+  {
+    "Code": "CIB",
+    "Description": "Credit Information Bureau of India Limited",
+    "DisplayName": "CIB: Credit Information Bureau of India Limited"
+  },
+  {
+    "Code": "RSH",
+    "Description": "Repayment Schedule Generation",
+    "DisplayName": "RSH: Repayment Schedule Generation"
+  },
+  {
+    "Code": "CTA",
+    "Description": "Contingent Account",
+    "DisplayName": "CTA: Contingent Account"
+  },
+  {
+    "Code": "CIS",
+    "Description": "CISLA Bulk Upload",
+    "DisplayName": "CIS: CISLA Bulk Upload"
+  },
+  {
+    "Code": "REN",
+    "Description": "Renewal Date",
+    "DisplayName": "REN: Renewal Date"
+  },
+  {
+    "Code": "REV",
+    "Description": "Revival Date",
+    "DisplayName": "REV: Revival Date"
+  },
+  {
+    "Code": "INS",
+    "Description": "Insurance",
+    "DisplayName": "INS: Insurance"
+  },
+  {
+    "Code": "INQ",
+    "Description": "CMP Inquiry",
+    "DisplayName": "INQ: CMP Inquiry"
+  },
+  {
+    "Code": "DPC",
+    "Description": "DPC upload for Demate",
+    "DisplayName": "DPC: DPC upload for Demate"
+  },
+  {
+    "Code": "AUC",
+    "Description": "AUCA reversal",
+    "DisplayName": "AUC: AUCA reversal"
+  },
+  {
+    "Code": "BCF",
+    "Description": "Agent/Code creation",
+    "DisplayName": "BCF: Agent/Code creation"
+  },
+  {
+    "Code": "NEC",
+    "Description": "National Electronic Clearing",
+    "DisplayName": "NEC: National Electronic Clearing"
+  },
+  {
+    "Code": "CID",
+    "Description": "Customer ID Information",
+    "DisplayName": "CID: Customer ID Information"
+  },
+  {
+    "Code": "ECM",
+    "Description": "ECS OWCLR Mark Return",
+    "DisplayName": "ECM: ECS OWCLR Mark Return"
+  },
+  {
+    "Code": "IBT",
+    "Description": "Inter Branch Transactions",
+    "DisplayName": "IBT: Inter Branch Transactions"
+  },
+  {
+    "Code": "ATM",
+    "Description": "ATM File Upload",
+    "DisplayName": "ATM: ATM File Upload"
+  },
+  {
+    "Code": "IDR",
+    "Description": "IOI Revalidation By Issue/Drawee Branch",
+    "DisplayName": "IDR: IOI Revalidation By Issue/Drawee Branch"
+  },
+  {
+    "Code": "CAN",
+    "Description": "Customer Account Nominee",
+    "DisplayName": "CAN: Customer Account Nominee"
+  },
+  {
+    "Code": "CAP",
+    "Description": "Sweep File for CMP",
+    "DisplayName": "CAP: Sweep File for CMP"
+  },
+  {
+    "Code": "IOC",
+    "Description": "Bulk IOI Cancellation",
+    "DisplayName": "IOC: Bulk IOI Cancellation"
+  },
+  {
+    "Code": "CTL",
+    "Description": "G/L to Loans Funds Transfer",
+    "DisplayName": "CTL: G/L to Loans Funds Transfer"
+  },
+  {
+    "Code": "FEC",
+    "Description": "FEE COLLECTION PRE-UPLOADED",
+    "DisplayName": "FEC: FEE COLLECTION PRE-UPLOADED"
+  },
+  {
+    "Code": "DQA",
+    "Description": "Data Quality Assurance",
+    "DisplayName": "DQA: Data Quality Assurance"
+  },
+  {
+    "Code": "STD",
+    "Description": "TINY STDR FILE UPLOAD",
+    "DisplayName": "STD: TINY STDR FILE UPLOAD"
+  },
+  {
+    "Code": "LMA",
+    "Description": "Lien Marking on ASBA Account",
+    "DisplayName": "LMA: Lien Marking on ASBA Account"
+  },
+  {
+    "Code": "SAN",
+    "Description": "SAN Mapping for Inward Clg file ",
+    "DisplayName": "SAN: SAN Mapping for Inward Clg file "
+  },
+  {
+    "Code": "LMM",
+    "Description": "Lien Marking on MOD/TDR/STDR Acc ",
+    "DisplayName": "LMM: Lien Marking on MOD/TDR/STDR Acc "
+  },
+  {
+    "Code": "LTT",
+    "Description": "Lien Unmarking and Transfer for TDR/STDR Acc ",
+    "DisplayName": "LTT: Lien Unmarking and Transfer for TDR/STDR Acc "
+  },
+  {
+    "Code": "LUC",
+    "Description": "Lien Unmarking and Closure of MOD/TDR/STDR Acc ",
+    "DisplayName": "LUC: Lien Unmarking and Closure of MOD/TDR/STDR Acc "
+  },
+  {
+    "Code": "LUM",
+    "Description": "Lien Unmarking for MOD/TDR/STDR Acc ",
+    "DisplayName": "LUM: Lien Unmarking for MOD/TDR/STDR Acc "
+  },
+  {
+    "Code": "TAB",
+    "Description": "Transfer to Adv.Card Acc and BC to be iss.Acc ",
+    "DisplayName": "TAB: Transfer to Adv.Card Acc and BC to be iss.Acc "
+  },
+  {
+    "Code": "DTS",
+    "Description": "Bulk Upload for DD/TT Sale ",
+    "DisplayName": "DTS: Bulk Upload for DD/TT Sale "
+  },
+  {
+    "Code": "BRT",
+    "Description": "CMP RTGS File Upload",
+    "DisplayName": "BRT: CMP RTGS File Upload"
+  },
+  {
+    "Code": "BGR",
+    "Description": "CMP GRPT File Upload",
+    "DisplayName": "BGR: CMP GRPT File Upload"
+  },
+  {
+    "Code": "SGR",
+    "Description": "State Govt Receipt bulk upload ",
+    "DisplayName": "SGR: State Govt Receipt bulk upload "
+  },
+  {
+    "Code": "ATR",
+    "Description": "Bulk ATM Card ",
+    "DisplayName": "ATR: Bulk ATM Card "
+  },
+  {
+    "Code": "UIA",
+    "Description": "UIA File Upload ",
+    "DisplayName": "UIA: UIA File Upload "
+  },
+  {
+    "Code": "BLS",
+    "Description": "Budget Limit Uploading Type ",
+    "DisplayName": "BLS: Budget Limit Uploading Type "
+  },
+  {
+    "Code": "FPW",
+    "Description": "FPWM File Upload ",
+    "DisplayName": "FPW: FPWM File Upload "
+  },
+  {
+    "Code": "OLT",
+    "Description": "OLTAS File Upload ",
+    "DisplayName": "OLT: OLTAS File Upload "
+  },
+  {
+    "Code": "CEN",
+    "Description": "Census File Upload ",
+    "DisplayName": "CEN: Census File Upload "
+  },
+  {
+    "Code": "GPD",
+    "Description": "Govt. Pension Debit ",
+    "DisplayName": "GPD: Govt. Pension Debit "
+  },
+  {
+    "Code": "SMC",
+    "Description": "SMC File Upload ",
+    "DisplayName": "SMC: SMC File Upload "
+  },
+  {
+    "Code": "TDS",
+    "Description": "Tax Refund ",
+    "DisplayName": "TDS: Tax Refund "
+  },
+  {
+    "Code": "OCG",
+    "Description": "OCG File Upload",
+    "DisplayName": "OCG: OCG File Upload"
+  },
+  {
+    "Code": "CEC",
+    "Description": "Capture Employer Code ",
+    "DisplayName": "CEC: Capture Employer Code "
+  },
+  {
+    "Code": "CTC",
+    "Description": "Customer Type Change",
+    "DisplayName": "CTC: Customer Type Change"
+  },
+  {
+    "Code": "PSL",
+    "Description": "Priority SAL File Upload",
+    "DisplayName": "PSL: Priority SAL File Upload"
+  },
+  {
+    "Code": "NSR",
+    "Description": "NSR File Upload",
+    "DisplayName": "NSR: NSR File Upload"
+  },
+  {
+    "Code": "NSI",
+    "Description": "NSI File Upload",
+    "DisplayName": "NSI: NSI File Upload"
+  },
+  {
+    "Code": "FAC",
+    "Description": "Customer Facility",
+    "DisplayName": "FAC: Customer Facility"
+  },
+  {
+    "Code": "DDR",
+    "Description": "DDR: Direct Debit",
+    "DisplayName": "DDR: DDR: Direct Debit"
+  },
+  {
+    "Code": "ECT",
+    "Description": "Easy Collect Module",
+    "DisplayName": "ECT: Easy Collect Module"
+  },
+  {
+    "Code": "RET",
+    "Description": "Cheque Return File for PUL",
+    "DisplayName": "RET: Cheque Return File for PUL"
+  },
+  {
+    "Code": "VPT",
+    "Description": "VPS file with TDS details",
+    "DisplayName": "VPT: VPS file with TDS details"
+  },
+  {
+    "Code": "NOM",
+    "Description": "Nominee Create or Add",
+    "DisplayName": "NOM: Nominee Create or Add"
+  },
+  {
+    "Code": "CPP",
+    "Description": "Autonomous Bodies Pension File Upload",
+    "DisplayName": "CPP: Autonomous Bodies Pension File Upload"
+  },
+  {
+    "Code": "GCG",
+    "Description": "To Credit Govt Account",
+    "DisplayName": "GCG: To Credit Govt Account"
+  },
+  {
+    "Code": "SHR",
+    "Description": "Share Current Value Updation",
+    "DisplayName": "SHR: Share Current Value Updation"
+  },
+  {
+    "Code": "ECI",
+    "Description": "Easy Collect Commission Module",
+    "DisplayName": "ECI: Easy Collect Commission Module"
+  },
+  {
+    "Code": "NAT",
+    "Description": "New NEFT Bulk File Upload",
+    "DisplayName": "NAT: New NEFT Bulk File Upload"
+  },
+  {
+    "Code": "IVR",
+    "Description": "IVR File Upload",
+    "DisplayName": "IVR: IVR File Upload"
+  },
+  {
+    "Code": "VPP",
+    "Description": "VPP File Upload",
+    "DisplayName": "VPP: VPP File Upload"
+  },
+  {
+    "Code": "FIL",
+    "Description": "Financial Inclusion A/C Linkage",
+    "DisplayName": "FIL: Financial Inclusion A/C Linkage"
+  },
+  {
+    "Code": "CER",
+    "Description": "CERSAI Amend Details",
+    "DisplayName": "CER: CERSAI Amend Details"
+  },
+  {
+    "Code": "WKA",
+    "Description": "Welcome Kit Amendment",
+    "DisplayName": "WKA: Welcome Kit Amendment"
+  },
+  {
+    "Code": "FSL",
+    "Description": "File upload for FSLO Branches",
+    "DisplayName": "FSL: File upload for FSLO Branches"
+  },
+  {
+    "Code": "CIP",
+    "Description": "Employer PAN Bulk Upload",
+    "DisplayName": "CIP: Employer PAN Bulk Upload"
+  },
+  {
+    "Code": "PAR",
+    "Description": "Partial Recovery File Upload",
+    "DisplayName": "PAR: Partial Recovery File Upload"
+  },
+  {
+    "Code": "OCB",
+    "Description": "Outward Clearing BGL File Upload",
+    "DisplayName": "OCB: Outward Clearing BGL File Upload"
+  },
+  {
+    "Code": "MCI",
+    "Description": "MCI File Upload",
+    "DisplayName": "MCI: MCI File Upload"
+  },
+  {
+    "Code": "RCP",
+    "Description": "RCP File Upload",
+    "DisplayName": "RCP: RCP File Upload"
+  },
+  {
+    "Code": "VST",
+    "Description": "Vostro File upload",
+    "DisplayName": "VST: Vostro File upload"
+  },
+  {
+    "Code": "LBL",
+    "Description": "Libor File Upload",
+    "DisplayName": "LBL: Libor File Upload"
+  },
+  {
+    "Code": "SHG",
+    "Description": "Self Help Group File upload",
+    "DisplayName": "SHG: Self Help Group File upload"
+  },
+  {
+    "Code": "WLR",
+    "Description": "Welcome Letter Return",
+    "DisplayName": "WLR: Welcome Letter Return"
+  },
+  {
+    "Code": "MCD",
+    "Description": "Manual Charges Collection ",
+    "DisplayName": "MCD: Manual Charges Collection "
+  },
+  {
+    "Code": "CSP",
+    "Description": "Linking Account with Agent ",
+    "DisplayName": "CSP: Linking Account with Agent "
+  },
+  {
+    "Code": "KYC",
+    "Description": "KYC FileUpload ",
+    "DisplayName": "KYC: KYC FileUpload "
+  },
+  {
+    "Code": "ACL",
+    "Description": "CCOD/LOANS File Upload",
+    "DisplayName": "ACL: CCOD/LOANS File Upload"
+  },
+  {
+    "Code": "FRD",
+    "Description": "FRD File Upload",
+    "DisplayName": "FRD: FRD File Upload"
+  },
+  {
+    "Code": "STP",
+    "Description": "Stop File Upload",
+    "DisplayName": "STP: Stop File Upload"
+  },
+  {
+    "Code": "KAM",
+    "Description": "KAM File Upload",
+    "DisplayName": "KAM: KAM File Upload"
+  },
+  {
+    "Code": "SDC",
+    "Description": "SDC File Upload",
+    "DisplayName": "SDC: SDC File Upload"
+  },
+  {
+    "Code": "CCM",
+    "Description": "Customer Complaint Management",
+    "DisplayName": "CCM: Customer Complaint Management"
+  },
+  {
+    "Code": "CSI",
+    "Description": "CSI File Upload",
+    "DisplayName": "CSI: CSI File Upload"
+  },
+  {
+    "Code": "CCT",
+    "Description": "Consolidated Credit Tricklefeed",
+    "DisplayName": "CCT: Consolidated Credit Tricklefeed"
+  },
+  {
+    "Code": "OMR",
+    "Description": "OMR File Upload",
+    "DisplayName": "OMR: OMR File Upload"
+  },
+  {
+    "Code": "CRO",
+    "Description": "CRO File Upload",
+    "DisplayName": "CRO: CRO File Upload"
+  },
+  {
+    "Code": "VSD",
+    "Description": "VISA File Upload",
+    "DisplayName": "VSD: VISA File Upload"
+  },
+  {
+    "Code": "FTD",
+    "Description": "FTD File Upload",
+    "DisplayName": "FTD: FTD File Upload"
+  },
+  {
+    "Code": "IDF",
+    "Description": "Income Distribution Frontend trickle feed file",
+    "DisplayName": "IDF: Income Distribution Frontend trickle feed file"
+  },
+  {
+    "Code": "IBF",
+    "Description": "Income Booking Frontend TF file for GST reporting",
+    "DisplayName": "IBF: Income Booking Frontend TF file for GST reporting"
+  },
+  {
+    "Code": "RAL",
+    "Description": "RALOO RATE UPDATION FILE",
+    "DisplayName": "RAL: RALOO RATE UPDATION FILE"
+  },
+  {
+    "Code": "HLD",
+    "Description": "HOLD Type File Upload",
+    "DisplayName": "HLD: HOLD Type File Upload"
+  },
+  {
+    "Code": "TSP",
+    "Description": "TSP File Upload",
+    "DisplayName": "TSP: TSP File Upload"
+  },
+  {
+    "Code": "RKG",
+    "Description": "Random Key Generation",
+    "DisplayName": "RKG: Random Key Generation"
+  },
+  {
+    "Code": "SWE",
+    "Description": "Sweep Setting File Upload",
+    "DisplayName": "SWE: Sweep Setting File Upload"
+  },
+  {
+    "Code": "HBS",
+    "Description": "Home branch change File Upload",
+    "DisplayName": "HBS: Home branch change File Upload"
+  },
+  {
+    "Code": "LOC",
+    "Description": "LOG OF CORRESPONDENCE UPDATION FILE",
+    "DisplayName": "LOC: LOG OF CORRESPONDENCE UPDATION FILE"
+  },
+  {
+    "Code": "CEX",
+    "Description": "Currency Exchange Rates",
+    "DisplayName": "CEX: Currency Exchange Rates"
+  },
+  {
+    "Code": "MTD",
+    "Description": "MT950 DUPLICATE STATEMENT",
+    "DisplayName": "MTD: MT950 DUPLICATE STATEMENT"
+  },
+  {
+    "Code": "PBM",
+    "Description": "PREMIER CUSTOMER UPDATION FILE",
+    "DisplayName": "PBM: PREMIER CUSTOMER UPDATION FILE"
+  },
+  {
+    "Code": "DLV",
+    "Description": "IOI Delivery Flag",
+    "DisplayName": "DLV: IOI Delivery Flag"
+  },
+  {
+    "Code": "BSI",
+    "Description": "Non Co-operative Borrower",
+    "DisplayName": "BSI: Non Co-operative Borrower"
+  },
+  {
+    "Code": "IFS",
+    "Description": "IFSC File Upload",
+    "DisplayName": "IFS: IFSC File Upload"
+  },
+  {
+    "Code": "LUO",
+    "Description": "LUO - Lien Unmarking",
+    "DisplayName": "LUO: LUO - Lien Unmarking"
+  },
+  {
+    "Code": "LUT",
+    "Description": "LUT - Lien Unmarking &amp; Fund Transfer ",
+    "DisplayName": "LUT: LUT - Lien Unmarking &amp; Fund Transfer "
+  },
+  {
+    "Code": "LMV",
+    "Description": "LMV - Lien Mark Validation ",
+    "DisplayName": "LMV: LMV - Lien Mark Validation "
+  },
+  {
+    "Code": "IW",
+    "Description": "Bulk Interest Warrants",
+    "DisplayName": "IW: Bulk Interest Warrants"
+  },
+  {
+    "Code": "RW",
+    "Description": "Bulk Refund Warrants",
+    "DisplayName": "RW: Bulk Refund Warrants"
+  },
+  {
+    "Code": "VIP",
+    "Description": "VIP File Upload ",
+    "DisplayName": "VIP: VIP File Upload "
+  },
+  {
+    "Code": "HNI",
+    "Description": "HNI File Upload ",
+    "DisplayName": "HNI: HNI File Upload "
+  },
+  {
+    "Code": "DEF",
+    "Description": "DEF File Upload",
+    "DisplayName": "DEF: DEF File Upload"
+  },
+  {
+    "Code": "FAP",
+    "Description": "FATCA Pre-Existing Customer",
+    "DisplayName": "FAP: FATCA Pre-Existing Customer"
+  },
+  {
+    "Code": "CRS",
+    "Description": "CRS Pre-Existing Customer",
+    "DisplayName": "CRS: CRS Pre-Existing Customer"
+  },
+  {
+    "Code": "TLC",
+    "Description": "Teller Deactivation ",
+    "DisplayName": "TLC: Teller Deactivation "
+  },
+  {
+    "Code": "BLS",
+    "Description": "Budget Limit Uploading Type ",
+    "DisplayName": "BLS: Budget Limit Uploading Type "
+  },
+  {
+    "Code": "BTC",
+    "Description": "Bulk Teller Creation ",
+    "DisplayName": "BTC: Bulk Teller Creation "
+  },
+  {
+    "Code": "GLS",
+    "Description": "BGL Activation And Deactivation",
+    "DisplayName": "GLS: BGL Activation And Deactivation"
+  },
+  {
+    "Code": "FPW",
+    "Description": "FPWM File Upload",
+    "DisplayName": "FPW: FPWM File Upload"
+  },
+  {
+    "Code": "BLS",
+    "Description": "Budget Limit Uploading Type ",
+    "DisplayName": "BLS: Budget Limit Uploading Type "
+  },
+  {
+    "Code": "PBM",
+    "Description": "PREMIER CUSTOMER UPDATION FILE",
+    "DisplayName": "PBM: PREMIER CUSTOMER UPDATION FILE"
+  }
+]
