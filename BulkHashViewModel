@@ -1,0 +1,280 @@
+using HashGenerator.Model;
+using HashGenerator.Services;
+using Microsoft.Win32;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Input;
+
+namespace HashGenerator.VIewModel
+{
+    public class BulkHashViewModel : ViewModelBase
+    {
+        // 1. Private Fields
+        private bool _bulkIsProcessing;
+        private string _bulkSelectedAlgorithm = "SHA256";
+        private string _bulkUploadBranch = "";
+        private ObservableCollection<string> _bulkSourceFiles = new ObservableCollection<string>();
+        private ObservableCollection<BulkHashResultItem> _bulkResultList = new ObservableCollection<BulkHashResultItem>();
+
+        // 2. Public Properties
+        public ObservableCollection<UploadCategory> BulkCategories { get; set; } = new ObservableCollection<UploadCategory>();
+        public bool BulkIsProcessing { get => _bulkIsProcessing; set { _bulkIsProcessing = value; OnPropertyChanged(); } }
+        public string BulkSelectedAlgorithm { get => _bulkSelectedAlgorithm; set { _bulkSelectedAlgorithm = value; OnPropertyChanged(); } }
+        public string BulkUploadBranch { get => _bulkUploadBranch; set { _bulkUploadBranch = value; OnPropertyChanged(); } }
+        public ObservableCollection<string> BulkSourceFiles { get => _bulkSourceFiles; set { _bulkSourceFiles = value; OnPropertyChanged(); } }
+        public ObservableCollection<BulkHashResultItem> BulkResultList { get => _bulkResultList; set { _bulkResultList = value; OnPropertyChanged(); } }
+
+        public bool CanBLKInput => (BulkResultList == null || BulkResultList.Count == 0) && !BulkIsProcessing;
+        public bool CanBLKReset => !(BulkResultList == null || BulkResultList.Count == 0) && !BulkIsProcessing;
+
+        // 3. Commands
+        public RelayCommand BulkAddFilesCommand { get; }
+        public RelayCommand BulkProcessCommand { get; }
+        public RelayCommand BulkResetCommand { get; }
+        public RelayCommand BulkCopyToClipboardCommand { get; }
+        public RelayCommand BulkSaveZipAsCommand { get; }
+        public RelayCommand BulkPrintReportCommand { get; }
+
+        public RelayCommand BLKPrintReportCommand { get; }
+
+        public BulkHashViewModel()
+        {
+            Header = "Bulk File Hash Generation";
+
+            LoadBLKCategoriesFromFile();
+
+            RefreshButtonStates();
+
+            BulkAddFilesCommand = new RelayCommand(_ =>
+            {
+                var ofd = new OpenFileDialog { Multiselect = true, Filter = "Text files (*.txt)|*.txt" };
+                if (ofd.ShowDialog() == true) foreach (var file in ofd.FileNames) BulkSourceFiles.Add(file);
+            });
+
+            BulkProcessCommand = new RelayCommand(async _ => await ExecuteBulkProcessAsync());
+
+            BulkResetCommand = new RelayCommand(_ =>
+            {
+                BulkSourceFiles.Clear();
+                BulkResultList.Clear();
+                BulkUploadBranch = "";
+                BulkIsProcessing = false;
+                // Notify UI to re-enable inputs if they were frozen
+                //OnPropertyChanged(nameof(BulkIsProcessing));
+                RefreshButtonStates();
+            });
+
+            BulkCopyToClipboardCommand = new RelayCommand(_ =>
+            {
+                if (BulkResultList.Count == 0) return;
+
+                StringBuilder sb = new StringBuilder();
+                // Add Headers
+                sb.AppendLine("Sr No\tOriginal File Name\tGenerated File Name\tBranch\tPassKey\tFile Hash Value");
+
+                // Add Data Rows
+                foreach (var item in BulkResultList)
+                {
+                    sb.AppendLine($"{item.BulkSrNo}\t{item.BulkOriginalFileName}\t{item.BulkGeneratedFileName}\t{item.BulkBranch}\t{item.BulkPassKey}\t{item.BulkFileHashValue}");
+                }
+
+                Clipboard.SetText(sb.ToString());
+                MessageBox.Show("Results copied to clipboard (Tab-Separated)!", "Copied", MessageBoxButton.OK, MessageBoxImage.Information);
+            });
+
+            BulkSaveZipAsCommand = new RelayCommand(_ =>
+            {
+                MessageBox.Show("Feature: Re-saving package from current result list.");
+            });
+
+            BLKPrintReportCommand = new RelayCommand(_ =>
+            {
+                if (BulkResultList == null || BulkResultList.Count == 0) return;
+                BLKPrintReport();
+            });
+        }
+
+
+        private void BLKPrintReport()
+        {
+            if (BulkResultList.Count == 0) return;
+
+            var builder = new ReportBuilder();
+
+            // 1. Generate the list of Grids (Multiple pages)
+            var pages = builder.BuildBulkPages(BulkResultList, BulkUploadBranch);
+
+            // 2. Wrap Grids into a FixedDocument
+            FixedDocument fixedDoc = new FixedDocument();
+
+            foreach (var grid in pages)
+            {
+                FixedPage fixedPage = new FixedPage
+                {
+                    Width = 793,  // Matches your ReportBuilder Width
+                    Height = 1122 // Matches your ReportBuilder Height
+                };
+
+                fixedPage.Children.Add(grid);
+
+                PageContent pageContent = new PageContent();
+                ((System.Windows.Markup.IAddChild)pageContent).AddChild(fixedPage);
+
+                fixedDoc.Pages.Add(pageContent);
+            }
+
+            // 3. Open the Preview Window
+            var previewWindow = new PrintPreviewWindow();
+            previewWindow.docViewer.Document = fixedDoc; // Direct access to the viewer
+            previewWindow.ShowDialog();
+        }
+        // 4. Core Logic
+        private async Task ExecuteBulkProcessAsync()
+        {
+            if (string.IsNullOrEmpty(BulkUploadBranch)) { MessageBox.Show("Please enter a Branch."); return; }
+            if (BulkSourceFiles.Count == 0) { MessageBox.Show("No files to process."); return; }
+
+            // Create a unique temporary path for the ZIP
+            string tempZipPath = Path.Combine(Path.GetTempPath(), $"Bulk_{Guid.NewGuid()}.zip");
+
+            BulkIsProcessing = true;
+            BulkResultList.Clear();
+            RefreshButtonStates();
+            try
+            {
+                await Task.Run(() =>
+                {
+                    using (var zipStream = new FileStream(tempZipPath, FileMode.Create))
+                    using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Create))
+                    {
+                        int counter = 1;
+                        foreach (var path in BulkSourceFiles)
+                        {
+                            byte[] fileBytes = File.ReadAllBytes(path);
+                            string hash;
+
+                            using (var provider = (BulkSelectedAlgorithm == "MD5") ? (HashAlgorithm)MD5.Create() : SHA256.Create())
+                            {
+                                hash = BitConverter.ToString(provider.ComputeHash(fileBytes)).Replace("-", "").ToUpperInvariant();
+                            }
+
+                            string genName = $"{Path.GetFileNameWithoutExtension(path)}-[{hash}].txt";
+                            string pKey = hash.Length >= 17 ? hash.Substring(5, 2) + hash.Substring(8, 2) + hash.Substring(15, 2) : "N/A";
+
+                            var entry = archive.CreateEntry(genName);
+                            using (var es = entry.Open()) es.Write(fileBytes, 0, fileBytes.Length);
+
+                            Application.Current.Dispatcher.Invoke(() => BulkResultList.Add(new BulkHashResultItem
+                            {
+                                BulkSrNo = counter++,
+                                BulkOriginalFileName = Path.GetFileName(path),
+                                BulkGeneratedFileName = genName,
+                                BulkBranch = BulkUploadBranch,
+                                BulkPassKey = pKey,
+                                BulkFileHashValue = hash
+                            }));
+                        }
+                    }
+                });
+
+                BulkIsProcessing = false;
+                RefreshButtonStates();
+                // Post-processing: Open Save Dialog
+                var sfd = new SaveFileDialog
+                {
+                    Filter = "Zip files (*.zip)|*.zip",
+                    FileName = $"Bulk_Package_{DateTime.Now:yyyyMMdd}.zip",
+                    Title = "Save Hashed Package"
+                };
+
+                if (sfd.ShowDialog() == true)
+                {
+                    try
+                    {
+                        // Check for existing file manually for .NET Framework compatibility
+                        if (File.Exists(sfd.FileName))
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+
+                        File.Move(tempZipPath, sfd.FileName); // Now using only 2 arguments
+                        MessageBox.Show("Bulk Hashing Completed Successfully!", "Success");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Final save error: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    if (File.Exists(tempZipPath)) File.Delete(tempZipPath);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                if (File.Exists(tempZipPath)) File.Delete(tempZipPath);
+            }
+        }
+        private void LoadBLKCategoriesFromFile()
+        {
+            try
+            {
+                string fileName = "UploadTypes.json";
+                string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+                DirectoryInfo directory = new DirectoryInfo(currentDir);
+
+                while (directory != null && !File.Exists(Path.Combine(directory.FullName, fileName)))
+                {
+                    directory = directory.Parent;
+                }
+
+                string filePath = (directory != null)
+                    ? Path.Combine(directory.FullName, fileName)
+                    : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+                if (File.Exists(filePath))
+                {
+                    string jsonContent = File.ReadAllText(filePath);
+
+                    var list = JsonConvert.DeserializeObject<List<UploadCategory>>(jsonContent);
+
+                    if (list != null)
+                    {
+                        BulkCategories.Clear();
+                        foreach (var item in list)
+                        {
+                            BulkCategories.Add(item);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading categories: " + ex.Message);
+            }
+        }
+
+        private void RefreshButtonStates()
+        {
+            // These must be called to tell WPF to re-read the getters
+            OnPropertyChanged(nameof(CanBLKInput));
+            OnPropertyChanged(nameof(CanBLKReset));
+
+            // 2. Critical: Also refresh the Command's internal 'CanExecute' logic
+            // This tells bound buttons to re-check their 'IsEnabled' state
+            CommandManager.InvalidateRequerySuggested();
+        }
+    }
+}
